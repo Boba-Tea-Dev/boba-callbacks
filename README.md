@@ -6,25 +6,25 @@ While this utility doesn't expose events to clients *directly*, you should ensur
 
 > Any code provided in this repository is provided as-is, without warranty or support. You are expected to have any required technical knowledge prior to the use of this resource.
 
-Contributions can be made by [opening a pull request](https://github.com/itstait/fivem-server-callbacks/pulls), or if you notice an issue please [raise an issue](https://github.com/itstait/fivem-server-callbacks/issues).
+Contributions can be made by [opening a pull request](https://github.com/itstait/fivem-server-callbacks/pulls), or if you notice a bug please [raise an issue](https://github.com/itstait/fivem-server-callbacks/issues).
 
-# Examples
+# Example
 
-## Requesting a server callback from the client
+### Client
+
+```lua
+CreateThread(function()
+    local result = exports["boba-callbacks"]:ExecuteServerCallback("ResourceName:EventName", "Example value sent to the server event")
+    print(result)
+end)
+```
+
+### Server
 
 ```lua
 RegisterNetEvent("ResourceName:EventName", function(cb, src, arg)
     print(("Event triggered on the server. Value received: %s"):format(arg))
 
     cb("This value is sent to the client")
-end)
-```
-
-## Handling callbacks server-side
-
-```lua
-CreateThread(function()
-    local result = exports["boba-callbacks"]:ExecuteServerCallback("ResourceName:EventName", "Example value sent to the server event")
-    print(result)
 end)
 ```
