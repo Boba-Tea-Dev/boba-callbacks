@@ -11,12 +11,10 @@ function ExecuteServerCallback(event, ...)
     TriggerServerEvent("Boba:Server:ProcessServerCallback", event, ticket, ...)
 
     local result = Citizen.Await(p)
-
-    print("4")
+	
 
 	RemoveEventHandler(e)
-    print("5")
-    print(table.unpack(result))
+	
 	return table.unpack(result) or result
 end
 exports("ExecuteServerCallback", ExecuteServerCallback)
