@@ -1,7 +1,7 @@
 fx_version "cerulean"
 game "gta5"
 
-author "boba - https://itstait.dev"
+author "boba - https://bobatea.dev"
 description "Client → Server Callbacks by Boba"
 version "1.0.0"
 
